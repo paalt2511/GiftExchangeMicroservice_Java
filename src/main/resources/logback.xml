@@ -1,0 +1,15 @@
+<configuration>
+<appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+        <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS}# [%thread] %-5level %logger{36} - %msg%n</pattern>
+    </encoder>
+</appender>
+<appender name="ASYNC" class="ch.qos.logback.classic.AsyncAppender">
+    <appender-ref ref="stdout" />
+    <includeCallerData>true</includeCallerData>
+</appender>
+    <Logger  name="com.test.gifts.exchange" level="DEBUG" additivity="false">
+        <appender-ref ref="ASYNC"/>
+    </Logger>
+<root level="DEBUG"><appender-ref ref="ASYNC" /></root>
+</configuration>
